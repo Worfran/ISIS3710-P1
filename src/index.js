@@ -3,13 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-//import reportWebVitals from './reportWebVitals';
+import Barrnav from './components/Funtionalities/Navbar';
+import Banner from './components/Funtionalities/Banner';
+import Footer from './components/Funtionalities/Footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <div>
+    <Banner />
+    < Barrnav />
+    < Footer />
+  </div>
 );
 
 // If you want your app to work offline and load faster, you can change
