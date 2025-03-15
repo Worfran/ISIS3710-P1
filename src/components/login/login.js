@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Row, Col, Button, Form, Card, Container } from "react-bootstrap";
 import RobotList from "../Robotslist/Robotlist"; 
+import "./style/login.css";
 
 function LoginForm() {
   const [formValues, setFormValues] = useState({ login: "", password: "" });
@@ -33,7 +34,7 @@ function LoginForm() {
 
       const data = await response.json();
       if (response.status === 200) {
-        setMessage(data.message);
+        setMessage("Error de autenticación. Revise sus credenciales.");
         setIsAuthenticated(true); 
       } else if (response.status === 401) {
         setMessage(data.message);
@@ -50,14 +51,14 @@ function LoginForm() {
   }
 
   return (
-    <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: "100vh" }}>
-      <Card style={{ width: "350px", padding: "20px" }}>
+    <Container className="d-flex justify-content-center align-items-center" >
+      <Card className="borderless-card" style={{ width: "500px"}}>
         <Card.Body>
           <h1 className="text-center">Inicio de sesión</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicLogin">
               <Form.Label>Nombre de usuario</Form.Label>
-              <Form.Control type="text" placeholder="Enter login" onChange={handleLoginChange} value={formValues.login} />
+              <Form.Control className="control-form" type="text" placeholder="Enter login" onChange={handleLoginChange} value={formValues.login} />
               {!validationStates.loginState && (
                 <Form.Text className="text-danger">Login is required.</Form.Text>
               )}
@@ -65,25 +66,25 @@ function LoginForm() {
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Contraseña</Form.Label>
-              <Form.Control type="password" placeholder="Password" onChange={handlePasswordChange} value={formValues.password} />
+              <Form.Control className="control-form" type="password" placeholder="Password" onChange={handlePasswordChange} value={formValues.password} />
               {!validationStates.passwordState && (
                 <Form.Text className="text-danger">Password is required.</Form.Text>
               )}
             </Form.Group>
             <Row>
               <Col>
-                <Button variant="primary" type="submit" disabled={!validationStates.loginState || !validationStates.passwordState}>
+                <Button className="ingresar-button" variant="primary" type="submit" disabled={!validationStates.loginState || !validationStates.passwordState}>
                   Ingresar
                 </Button>
               </Col>
               <Col>
-                <Button variant="secondary" type="button" onClick={() => setFormValues({ login: "", password: "" })}>
+                <Button className="cancelar-button" variant="secondary" type="button" onClick={() => setFormValues({ login: "", password: "" })}>
                   Cancelar
                 </Button>
               </Col>
             </Row>
           </Form>
-          {message && <p className="mt-3">{message}</p>}
+          {message && <p className="mt-3 text-danger">{message}</p>}
         </Card.Body>
       </Card>
     </Container>
