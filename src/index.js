@@ -3,16 +3,18 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import Barrnav from './components/Funtionalities/Navbar';
-import Banner from './components/Funtionalities/Banner';
-import Footer from './components/Funtionalities/Footer';
+import Ban from './components/Funtionalities/Banner';
+import Foot from './components/Funtionalities/Footer';
+import Login from './components/login/login';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Robotlist from './components/Robotslist/Robotlist';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div>
-    <Banner />
-    < Barrnav />
-    < Footer />
+    < Ban />
+    < Robotlist />
+    < Foot />
   </div>
 );
 

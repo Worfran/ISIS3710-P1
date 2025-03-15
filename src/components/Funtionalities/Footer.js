@@ -1,15 +1,13 @@
+import { Container } from "react-bootstrap";
 
-
-function Footer() {
+function Foot() {
     return (
-        <footer>
-            <div className="footer">
-                <div className="footer-content">
-                    <button type="submit" className="btn btn-primary">Ingresar</button>
-                </div>
-            </div>
-        </footer>
+        <Container as="footer" className="text-center mt-4">
+            <p>
+                Contact us: +57 3102105253 - info@robot-lovers.com - @robot-lovers
+            </p>
+        </Container>
     )
 }
 
-export default Footer;
+export default Foot;

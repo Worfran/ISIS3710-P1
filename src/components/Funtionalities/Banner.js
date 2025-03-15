@@ -1,16 +1,18 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Container } from 'react-bootstrap';
 
-function Banner() {
+function Ban() {
   return (
-    <div className="Container mt-5"> 
-      <div className="banner text-center">
+    <Container className="mt-5">
+      <div className="text-center">
         <h1>Adopta un Robot con Robot Lovers!</h1>
       </div>
-      <div className="container">
-        <img src={require('../../statics/Banner.png')} alt="Banner" />
+      <hr className="my-4" />
+      <div className="text-center">
+        <img src={require('../static/Banner.png')} alt="Banner" className="img-fluid" />
       </div>
-    </div>
+      <hr className="my-4" />
+    </Container>
   );
 }
 
-export default Banner;
+export default Ban;
