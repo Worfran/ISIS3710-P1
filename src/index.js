@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import Ban from './components/Funtionalities/Banner';
 import Foot from './components/Funtionalities/Footer';
-import Login from './components/login/login';
+import LoginForm from './components/login/login';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Robotlist from './components/Robotslist/Robotlist';
 
@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div>
     < Ban />
-    < Robotlist />
+    < LoginForm />
     < Foot />
   </div>
 );

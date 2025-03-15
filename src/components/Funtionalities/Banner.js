@@ -8,7 +8,12 @@ function Ban() {
       </div>
       <hr className="my-4" />
       <div className="text-center">
-        <img src={require('../static/Banner.png')} alt="Banner" className="img-fluid" />
+        <img 
+          src={require('../static/Banner.png')} 
+          alt="Banner" 
+          className="img-fluid" 
+          style={{ maxHeight: '50%' }} 
+        />
       </div>
       <hr className="my-4" />
     </Container>
