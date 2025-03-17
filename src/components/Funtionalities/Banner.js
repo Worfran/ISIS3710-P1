@@ -1,10 +1,13 @@
 import { Container } from 'react-bootstrap';
+import { useIntl } from 'react-intl';
 
 function Ban() {
+  const { formatMessage } = useIntl();
+
   return (
     <Container className="mt-5">
       <div className="text-center">
-        <h1>Adopta un Robot con Robot Lovers!</h1>
+        <h1>{formatMessage({ id: 'bannerTitle' })}</h1>
       </div>
       <hr className="my-4" />
       <div className="text-center">

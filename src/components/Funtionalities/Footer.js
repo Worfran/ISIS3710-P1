@@ -1,10 +1,13 @@
 import { Container } from "react-bootstrap";
+import { useIntl } from 'react-intl';
 
 function Foot() {
+    const { formatMessage } = useIntl();
+
     return (
         <Container as="footer" className="text-center mt-4">
             <p>
-                Contact us: +57 3102105253 - info@robot-lovers.com - @robot-lovers
+                {formatMessage({ id: 'contactUs' })}
             </p>
         </Container>
     )

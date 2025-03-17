@@ -2,8 +2,11 @@ import React from 'react';
 import { Card, Image } from 'react-bootstrap';
 import './style/RobotDetail.css';
 import { BiRightArrowAlt } from 'react-icons/bi';
+import { useIntl } from 'react-intl';
 
 const RobotDetail = ({ robot }) => {
+    const { formatMessage } = useIntl();
+
     return (
         <Card className='card-robot-detail'>
             <Card.Body>
@@ -20,9 +23,9 @@ const RobotDetail = ({ robot }) => {
                     />
                 </div>
                 <Card.Text>
-                    <BiRightArrowAlt/> <strong>Modelo:</strong> {robot.modelo}<br />
-                    <BiRightArrowAlt/> <strong>Capacidad de procesamiento:</strong> {robot.empresaFabricante}<br />
-                    <BiRightArrowAlt/> <strong>Humor:</strong> {robot.humor}<br />
+                    <BiRightArrowAlt/> <strong>{formatMessage({ id: 'robotDetailModel' })}:</strong> {robot.modelo}<br />
+                    <BiRightArrowAlt/> <strong>{formatMessage({ id: 'robotDetailManufacturer' })}:</strong> {robot.empresaFabricante}<br />
+                    <BiRightArrowAlt/> <strong>{formatMessage({ id: 'robotDetailHumor' })}:</strong> {robot.humor}<br />
                 </Card.Text>
             </Card.Body>
         </Card>

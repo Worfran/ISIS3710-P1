@@ -1,0 +1,23 @@
+{
+    "bannerTitle": "Adopt a Robot with Robot Lovers!",
+    "contactUs": "Contact us: +57 3102105253 - info@robot-lovers.com - @robot-lovers",
+    "loginTitle": "Login",
+    "usernameLabel": "Username",
+    "usernamePlaceholder": "Username",
+    "usernameError": "Username is required.",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Password",
+    "passwordError": "Password is required.",
+    "loginButton": "Login",
+    "cancelButton": "Cancel",
+    "authenticationError": "Authentication error. Please check your credentials.",
+    "generalError": "An error occurred. Please try again.",
+    "robotListTitle": "Robot List",
+    "robotId": "ID",
+    "robotName": "Name",
+    "robotModel": "Model",
+    "robotManufacturer": "Manufacturer",
+    "robotDetailModel": "Model",
+    "robotDetailManufacturer": "Manufacturer",
+    "robotDetailHumor": "Humor"
+}

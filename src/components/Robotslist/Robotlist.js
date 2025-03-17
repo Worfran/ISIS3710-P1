@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Container, Table, Row, Col } from "react-bootstrap";
 import RobotDetail from "../Robotdetail/RobotDetail"; 
+import { useIntl } from 'react-intl';
 
 const Robotlist = () => {
+    const { formatMessage } = useIntl();
     const [robots, setRobots] = useState([]);
     const [selectedRobot, setSelectedRobot] = useState(null);
 
@@ -25,10 +27,10 @@ const Robotlist = () => {
                     <Table striped bordered hover>
                         <thead className="thead-dark">
                             <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Modelo</th>
-                                <th>Empresa Fabricante</th>
+                                <th>{formatMessage({ id: 'robotId' })}</th>
+                                <th>{formatMessage({ id: 'robotName' })}</th>
+                                <th>{formatMessage({ id: 'robotModel' })}</th>
+                                <th>{formatMessage({ id: 'robotManufacturer' })}</th>
                             </tr>
                         </thead>
                         <tbody>

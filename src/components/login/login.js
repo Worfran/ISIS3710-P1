@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Row, Col, Button, Form, Card, Container } from "react-bootstrap";
+import { useIntl } from 'react-intl';
 import RobotList from "../Robotslist/Robotlist"; 
 import "./style/login.css";
 
 function LoginForm() {
+  const { formatMessage } = useIntl();
   const [formValues, setFormValues] = useState({ login: "", password: "" });
   const [validationStates, setValidationStates] = useState({ loginState: false, passwordState: false });
   const [message, setMessage] = useState("");
@@ -34,15 +36,15 @@ function LoginForm() {
 
       const data = await response.json();
       if (response.status === 200) {
-        setMessage("Error de autenticación. Revise sus credenciales.");
+        setMessage(formatMessage({ id: 'authenticationError' }));
         setIsAuthenticated(true); 
       } else if (response.status === 401) {
         setMessage(data.message);
       } else {
-        setMessage("Un error ocurrió. Por favor, inténtalo de nuevo.");
+        setMessage(formatMessage({ id: 'generalError' }));
       }
     } catch (error) {
-      setMessage("Un error ocurrió. Por favor, inténtalo de nuevo.");
+      setMessage(formatMessage({ id: 'generalError' }));
     }
   };
 
@@ -54,32 +56,32 @@ function LoginForm() {
     <Container className="d-flex justify-content-center align-items-center" >
       <Card className="borderless-card" style={{ width: "500px"}}>
         <Card.Body>
-          <h1 className="text-center">Inicio de sesión</h1>
+          <h1 className="text-center">{formatMessage({ id: 'loginTitle' })}</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicLogin">
-              <Form.Label>Nombre de usuario</Form.Label>
-              <Form.Control className="control-form" type="text" placeholder="Enter login" onChange={handleLoginChange} value={formValues.login} />
+              <Form.Label>{formatMessage({ id: 'usernameLabel' })}</Form.Label>
+              <Form.Control className="control-form" type="text" placeholder={formatMessage({ id: 'usernamePlaceholder' })} onChange={handleLoginChange} value={formValues.login} />
               {!validationStates.loginState && (
-                <Form.Text className="text-danger">Login is required.</Form.Text>
+                <Form.Text className="text-danger">{formatMessage({ id: 'usernameError' })}</Form.Text>
               )}
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Contraseña</Form.Label>
-              <Form.Control className="control-form" type="password" placeholder="Password" onChange={handlePasswordChange} value={formValues.password} />
+              <Form.Label>{formatMessage({ id: 'passwordLabel' })}</Form.Label>
+              <Form.Control className="control-form" type="password" placeholder={formatMessage({ id: 'passwordPlaceholder' })} onChange={handlePasswordChange} value={formValues.password} />
               {!validationStates.passwordState && (
-                <Form.Text className="text-danger">Password is required.</Form.Text>
+                <Form.Text className="text-danger">{formatMessage({ id: 'passwordError' })}</Form.Text>
               )}
             </Form.Group>
             <Row>
               <Col>
                 <Button className="ingresar-button" variant="primary" type="submit" disabled={!validationStates.loginState || !validationStates.passwordState}>
-                  Ingresar
+                  {formatMessage({ id: 'loginButton' })}
                 </Button>
               </Col>
               <Col>
                 <Button className="cancelar-button" variant="secondary" type="button" onClick={() => setFormValues({ login: "", password: "" })}>
-                  Cancelar
+                  {formatMessage({ id: 'cancelButton' })}
                 </Button>
               </Col>
             </Row>
